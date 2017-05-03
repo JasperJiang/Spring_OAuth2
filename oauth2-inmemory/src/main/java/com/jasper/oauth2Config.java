@@ -15,11 +15,11 @@ public class oauth2Config extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory() // 使用in-memory存储
-                .withClient("client") // client_id
-                .secret("secret") // client_secret
-                .resourceIds("arip")
+                .withClient("clientapp") // client_id
+                .secret("123456") // client_secret
+                .resourceIds("resourceid")
                 .authorizedGrantTypes("client_credentials") // 该client允许的授权类型
-                .scopes("app"); // 允许的授权范围
+                .scopes("read-inmemory"); // 允许的授权范围
     }
 
     @Override
