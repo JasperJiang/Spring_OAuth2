@@ -62,8 +62,17 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                 .authorizedGrantTypes("client_credentials")
                 .scopes("read", "write")
                 .resourceIds("resourceid")
+                .secret("123456")
+                .and()
+                .withClient("clientpassword")
+                .authorizedGrantTypes("password")
+                .authorities("USER")
+                .scopes("read")
+                .resourceIds("resourceid")
                 .secret("123456");
     }
+
+
 
     @Override
     public void configure(
@@ -72,6 +81,8 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
         oauthServer
                 .tokenKeyAccess("permitAll()");
     }
+
+
 
 
 }
